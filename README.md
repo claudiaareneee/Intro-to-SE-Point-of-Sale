@@ -1,12 +1,2 @@
 # Intro to SE Point-of-Sale
-
-To get this up and running, make sure you have node installed. Visit [node.js](https://nodejs.org/en/).
-Once you have node installed, run the following command (Note this only has to be done once):
-```
-npm install http-server -g
-```
-
-To run this server:
-```
-http-server ./public
-```
+The development in this app has been accomplished in Visual Studio Code. In order to run this app in development mode, consider using the (Live Server)[https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer] plug-in for VSCode.
