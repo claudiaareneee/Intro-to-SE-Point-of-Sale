@@ -10,6 +10,13 @@ function addItemsByText(receipt, itemId, name, price, quantity){
         receipt.addItem(new Item(itemId, name, price, quantity));
 }
 
+function createItemView(item){
+    var itemsContent = document.getElementById("items");
+    var newItem = document.createElement("P");
+    newItem.innerHTML = item.name;
+    itemsContent.appendChild(newItem);
+}
+
 console.log("test2");
 
 var itemBook = new Item(42, "Physics Book", 49.50, 1);
@@ -26,3 +33,8 @@ console.log(receipt.calculateQuantity())
 
 receipt.addItem(new Item(23, "Notebook", 0.60, 2));
 console.log(receipt);
+
+createItemView(itemBook);
+createItemView(itemPencil);
+createItemView(itemStickyNotes);
+
