@@ -72,6 +72,10 @@ class Receipt{
         this.items.push(item);
     }
 
+    removeItem(itemIndex){
+        this.items.splice(itemIndex,1);
+    }
+
     setPaymentMethod(paymentMethodString){
         this.paymentMethod = paymentMethodString;
     }

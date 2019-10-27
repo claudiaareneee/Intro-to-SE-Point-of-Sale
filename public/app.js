@@ -29,11 +29,29 @@ function showShoppingCart(receipt) {
     console.log(receipt.items)
     shoppingCart.innerHTML = "";
 
-    for (var item of receipt.items){
-        var newItem = document.createElement("P");
-        newItem.className = "itemFromReceipt";
-        newItem.innerHTML = item.name;
-        shoppingCart.appendChild(newItem);
+    for (var i in receipt.items){
+        var newContainer = document.createElement("DIV");
+        var newItemName = document.createElement("P");
+        var newDeleteButton = document.createElement("BUTTON");
+        
+        newContainer.className = "itemFromReceipt";
+        newItemName.className = "itemFromReceiptText";
+        // newDeleteButton.className = "itemFromReceiptDeleteButton"
+        newDeleteButton.className="w3-red w3-btn w3-padding-small w3-round-xxlarge itemFromReceiptDeleteButton";
+        newDeleteButton.innerHTML = "×";
+
+
+        //TODO: Fix this -- it's not deleting correctly
+        newDeleteButton.addEventListener("click", function(){
+            receipt.removeItem(i);
+            showShoppingCart(receipt);
+        })
+
+        newItemName.innerHTML = receipt.items[i].name;
+
+        newContainer.appendChild(newItemName);
+        newContainer.appendChild(newDeleteButton);
+        shoppingCart.appendChild(newContainer);
     }
 }
 

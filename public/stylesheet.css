@@ -2,6 +2,7 @@
 :root{
     --background-color: #f2f2f2;
     --topbar-color: #66ccff;
+    --hover-color: #80ff80;
     --primary-text-color: #222222;
     --primary-text-color-light: #ffffff;
 }
@@ -31,10 +32,27 @@ p {
 }
 
 .itemFromReceipt {
-    width: 10em;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    /* width: 10em; */
     border: 2px solid #555555;
     border-radius: 1em;
-    text-align: center;
+    /* text-align: center; */
+}
+
+.itemFromReceiptText{
+    align-self: flex-start;
+    display: inline-block;
+    line-height: .5em;
+    height: .5em;
+    padding-left: 1em;
+    padding-right: 5em;
+}
+
+.itemFromReceiptDeleteButton{
+    align-self: flex-end;
+    height: 2em;
+    width: 2em;
 }
 
 .itemFromMenu {
@@ -50,6 +68,10 @@ p {
     text-align: center;
 }
 
+.itemFromMenu:hover{
+    background: var(--hover-color);
+}
+
 .mainContent{
     width: 100%;
 }
@@ -59,5 +81,5 @@ p {
 }
 
 .shoppingCart{
-    width: 5%;
+    width: 25%;
 }
