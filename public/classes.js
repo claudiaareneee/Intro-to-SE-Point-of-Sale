@@ -1,6 +1,31 @@
 'use strict';
 
-export class Receipt{
+class Item{
+    constructor(itemId, name, price, quantity){
+        this.itemId = itemId;
+        this.name = name || 0.0;
+        this.price = price || 0.0;
+        this.quantity = quantity || 0;
+    }
+}
+
+class Search{
+    constructor(){
+        this.transactionId = null
+        this.time = ""
+        this.date = ""
+    }
+
+    searchByDate(date){
+        //TODO: implement this
+    }
+
+    searchByTransactionId(transactionId){
+        //TODO: implement this
+    }
+}
+
+class Receipt{
     generateTransactionId(){
         //TODO: Check against database
         return Math.floor(Math.random() * 1000000);
