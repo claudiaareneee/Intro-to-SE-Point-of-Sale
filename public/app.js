@@ -10,31 +10,53 @@ function addItemsByText(receipt, itemId, name, price, quantity){
         receipt.addItem(new Item(itemId, name, price, quantity));
 }
 
-function createItemView(item){
+function createItemMenuView(item, receipt){
     var itemsContent = document.getElementById("items");
     var newItem = document.createElement("P");
+    newItem.className = "itemFromMenu";
     newItem.innerHTML = item.name;
+
+    newItem.addEventListener("click", function(){
+        receipt.addItem(item);
+        showShoppingCart(receipt);
+    });
+
     itemsContent.appendChild(newItem);
 }
 
-console.log("test2");
+function showShoppingCart(receipt) {
+    var shoppingCart = document.getElementById("shoppingCart");
+    console.log(receipt.items)
+    shoppingCart.innerHTML = "";
 
-var itemBook = new Item(42, "Physics Book", 49.50, 1);
-console.log(itemBook);
+    for (var item of receipt.items){
+        var newItem = document.createElement("P");
+        newItem.className = "itemFromReceipt";
+        newItem.innerHTML = item.name;
+        shoppingCart.appendChild(newItem);
+    }
+}
 
-var itemPencil = new Item(4, "Pencil", 1.50, 3);
-var itemStickyNotes = new Item(54, "Sticky Notes", 3.50, 5);
+var items = [
+    new Item(42, "Physics Book", 49.50, 1),
+    new Item(4, "Pencil", 1.50, 1),
+    new Item(54, "Sticky Notes", 3.50, 1),
+    new Item(4, "Binder", 4.50, 1),
+    new Item(4, "Calculator", 7.80, 1),
+    new Item(4, "Eraser", 1.20, 1),
+    new Item(23, "Notebook", 0.60, 1)
+];
 
-var receipt = new Receipt([itemBook, itemPencil, itemStickyNotes]);
+var receipt = new Receipt();
+for(var item of items){
+    createItemMenuView(item, receipt);
+}
+
+
+
 console.log(receipt);
-
 console.log(receipt.calculateTotal())
 console.log(receipt.calculateQuantity())
 
-receipt.addItem(new Item(23, "Notebook", 0.60, 2));
-console.log(receipt);
 
-createItemView(itemBook);
-createItemView(itemPencil);
-createItemView(itemStickyNotes);
-
+showShoppingCart(receipt);

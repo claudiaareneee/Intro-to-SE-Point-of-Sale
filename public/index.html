@@ -2,20 +2,27 @@
 <html lang="en">
     <head>
         <title>Point of Sale at MSU</title>
+        <link rel="stylesheet" href="stylesheet.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     </head>
     <body>
-        <dir id="topBar">
+        <div id="topBar">
             <h1 id="apptitle">Point of Sale at MSU</h1>
-        </dir>
+        </div>
 
-        <dir id="itemsContent">
-            <p>Here are our Items</p>
-            <dir id="items"></dir>
-        </dir>
+        <div id="mainContent" class="w3-row">
+            <div id="itemsContent" class="w3-col m1 l9">
+                <p>Here are our Items</p>
+                <div id="items"></div>
+            </div>
+    
+            <div id="rightBar" class="w3-col m4 l3">
+                <p>Here is our shopping cart</p>
+                <div id="shoppingCart"></div>
+            </div>
+        </div>
 
-        <dir id="rightBar">
-            <p>Here is where we'll put something</p>
-        </dir>
+        
     </body>
     <script src="models.js"></script>
     <script src="app.js"></script>
