@@ -96,7 +96,7 @@ p {
 }
 
 /* Style for search icon */
-.topnav .search-container button {
+.topnav button {
   float: right;
   padding: 6px 10px;
   margin-top: 8px;
@@ -105,4 +105,8 @@ p {
   font-size: 17px;
   border: none;
   cursor: pointer;
+}
+
+.topnav {
+    float: right;   
 }
