@@ -29,7 +29,7 @@ function showShoppingCart(receipt) {
     console.log(receipt.items)
     shoppingCart.innerHTML = "";
 
-    for (var i in receipt.items){
+    for (let key of Object.keys(receipt.items)){
         var newContainer = document.createElement("DIV");
         var newItemName = document.createElement("P");
         var newDeleteButton = document.createElement("BUTTON");
@@ -43,11 +43,12 @@ function showShoppingCart(receipt) {
 
         //TODO: Fix this -- it's not deleting correctly
         newDeleteButton.addEventListener("click", function(){
-            receipt.removeItem(i);
+            receipt.removeItem(receipt.items[key]);
             showShoppingCart(receipt);
         })
 
-        newItemName.innerHTML = receipt.items[i].name;
+        // newItemName.innerHTML = receipt.items[i].name;
+        newItemName.innerHTML = receipt.items[key].name;
 
         newContainer.appendChild(newItemName);
         newContainer.appendChild(newDeleteButton);

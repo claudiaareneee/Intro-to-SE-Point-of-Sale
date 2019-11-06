@@ -33,7 +33,7 @@ class Receipt{
 
     constructor(items, storeId, time, date, paymentMethod){
         this.transactionId =  this.generateTransactionId();
-        this.items = items || [];
+        this.items = items || {};
         this.storeId = storeId || 5;
         this.time = time || "time";
         this.date = date || "string";
@@ -69,11 +69,14 @@ class Receipt{
     }
 
     addItem(item){
-        this.items.push(item);
+        // this.items.push(item);
+        this.items[item.name] = item
     }
 
-    removeItem(itemIndex){
-        this.items.splice(itemIndex,1);
+    removeItem(item){
+        // this.items.splice(itemIndex,1);
+        console.log(item.name)
+        delete this.items[item.name];
     }
 
     setPaymentMethod(paymentMethodString){
