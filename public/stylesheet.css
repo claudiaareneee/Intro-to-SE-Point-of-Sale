@@ -4,6 +4,7 @@
     --topbar-color: #66ccff;
     --hover-color: #80ff80;
     --primary-text-color: #222222;
+    --primary-text-color-subheadding: #555555;
     --primary-text-color-light: #ffffff;
 }
 
@@ -29,6 +30,22 @@ p {
     font-weight: lighter;
     text-align: center;
     color: var(--primary-text-color-light);
+}
+
+/* To make text unselectable and prevent unwanted highlighting */
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Opera and Firefox */
+}
+
+.lightText {
+    color: var(--primary-text-color-subheadding);
+    font-size: .75em;
 }
 
 .itemFromReceipt {
