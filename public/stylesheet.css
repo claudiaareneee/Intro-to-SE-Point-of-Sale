@@ -72,55 +72,23 @@ p {
     width: 2em;
 }
 
-.itemFromMenu {
-    display: inline-block;
-    width: 10em;
-    height: 10em;
-    margin: 1em;
-    background: #e5e5e5;
-    color: #444444;
-    line-height: 10em;
-    border: 0px solid;
-    border-radius: 1em;
-    text-align: center;
+.itemCard {
+    margin: 1rem;
+    /* margin-bottom: 1em;
+    margin-top: 1em; */
+}
+
+.float-right{
+    float: right;
 }
 
 .itemFromMenu:hover{
     background: var(--hover-color);
 }
 
-.mainContent{
+#mainContent{
     width: 100%;
-}
-
-.itemContent{
-    width: 75%;
-}
-
-.shoppingCart{
-    width: 25%;
-}
-
-/* Style the search box inside the navigation bar */
-.topnav input[type=text] {
-  float: left;
-  padding: 6px;
-  border: none;
-  margin-top: 8px;
-  margin-right: 0px;
-  font-size: 17px;
-}
-
-/* Style for search icon */
-.topnav button {
-  float: right;
-  padding: 6px 10px;
-  margin-top: 8px;
-  margin-right: 16px;
-  background: #ddd;
-  font-size: 17px;
-  border: none;
-  cursor: pointer;
+    padding: 2rem;
 }
 
 .topnav {
