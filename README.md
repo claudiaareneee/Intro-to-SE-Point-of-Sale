@@ -16,7 +16,7 @@ git push                # Push your changes to GitHub
 
 To clone this repository, navigate to the directory you want to make this project in, and run the following command in your terminal
 ```
-git clone https://github.com/claudiaareneee/UmQuestion.git
+git clone https://github.com/claudiaareneee/Intro-to-SE-Point-of-Sale.git
 ```
 
 ## Getting started
