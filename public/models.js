@@ -133,3 +133,13 @@ class Blockchain{
         return true;
     }
 }
+
+function writeBlock(block){
+    firebase.database().ref('/blocks/' + block.index).set({
+        index: block.index,
+        previousHash: block.previousHash,
+        timestamp: block.timestamp,
+        receiptData: block.receiptData,
+        hash: block.hash
+    });
+}

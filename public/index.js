@@ -126,5 +126,7 @@ console.log(receipt);
 console.log(receipt.calculateTotal())
 console.log(receipt.calculateQuantity())
 
+writeBlock(new Block(0, "prev", "time", "receipt", "hash"));
+
 
 showShoppingCart(receipt);
