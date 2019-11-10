@@ -91,13 +91,13 @@ function showShoppingCart(receipt) {
 }
 
 var items = [
-    new Item(42, "Physics Book", 49.50, 0),
-    new Item(4, "Pencil", 1.50, 0),
-    new Item(54, "Sticky Notes", 3.50, 0),
-    new Item(4, "Binder", 4.50, 0),
+    new Item(0, "Physics Book", 49.50, 0),
+    new Item(1, "Pencil", 1.50, 0),
+    new Item(2, "Sticky Notes", 3.50, 0),
+    new Item(3, "Binder", 4.50, 0),
     new Item(4, "Calculator", 7.80, 0),
-    new Item(4, "Eraser", 1.20, 0),
-    new Item(23, "Notebook", 0.60, 0)
+    new Item(5, "Eraser", 1.20, 0),
+    new Item(6, "Notebook", 0.60, 0)
 ];
 
 var receipt = new Receipt();
@@ -105,6 +105,22 @@ for(var item of items){
     createItemMenuView(item, receipt);
 }
 
+var newItemButton = document.getElementById("addItemByTextButton");
+newItemButton.addEventListener("click", function(){
+    var quantity = document.getElementById("itemByTextQuantity").value;
+    var name = document.getElementById("itemByTextName").value;
+    var price = document.getElementById("itemByTextPrice").value;
+
+    var item = new Item(items.length + 1, name, parseFloat(price), 0.0);
+    var itemForList = new Item(items.length + 1, name, parseFloat(price), 0.0);
+
+    createItemMenuView(itemForList, receipt);
+    
+    items.push(itemForList);
+    item.quantity = parseFloat(quantity);
+    receipt.addItem(item);
+    showShoppingCart(receipt);
+});
 
 console.log(receipt);
 console.log(receipt.calculateTotal())

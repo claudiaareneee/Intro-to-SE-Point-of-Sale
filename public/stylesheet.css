@@ -1,6 +1,7 @@
 /* Defining our colors */
 :root{
     --background-color: #f2f2f2;
+    --secondary-color: #e0e0e0;
     --topbar-color: #66ccff;
     --hover-color: #80ff80;
     --primary-text-color: #222222;
@@ -13,7 +14,7 @@ html {
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Lato', sans-serif;
 }
 
 p {
@@ -90,6 +91,10 @@ p {
     width: 100%;
     padding: 2rem;
 }
+
+/* #rightBar {
+    background-color: var(--secondary-color);
+} */
 
 .topnav {
     float: right;   
