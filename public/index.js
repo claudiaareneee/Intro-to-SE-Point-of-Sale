@@ -122,11 +122,21 @@ newItemButton.addEventListener("click", function(){
     showShoppingCart(receipt);
 });
 
-console.log(receipt);
-console.log(receipt.calculateTotal())
-console.log(receipt.calculateQuantity())
+var completeTransactionButton = document.getElementById("completeTransactionButton");
 
-writeBlock(new Block(0, "prev", "time", "receipt", "hash"));
+var blockchain = new Blockchain();
+getBlocks(blockchain, () => {console.log(blockchain.blocks)});
+
+completeTransactionButton.addEventListener("click", () => {
+    console.log("writing block");
+    writeBlock(blockchain.generateNextBlock(receipt));
+    getBlocks(blockchain, () => {console.log(blockchain.blocks)})
+});
+
+console.log(receipt);
+console.log(receipt.calculateTotal());
+console.log(receipt.calculateQuantity());
+
 
 
 showShoppingCart(receipt);
