@@ -87,6 +87,15 @@ function showShoppingCart(receipt) {
         newContainer.appendChild(newDeleteButton);
         newContainer.appendChild(newItemQuantity);
         shoppingCart.appendChild(newContainer);
+        //someone style this
+        //TODO: Fix this -- can't get number of items in shopping cart
+        console.log(receipt.items.quantity);
+        if (receipt.items.quantity != 0){
+            var total = document.getElementById("total").innerHTML = "$" + receipt.calculateTotal();
+        }
+        else{
+            var total = document.getElementById("total").innerHTML = "";
+        }
     }
 }
 
