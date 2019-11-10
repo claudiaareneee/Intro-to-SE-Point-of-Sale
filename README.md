@@ -22,7 +22,8 @@ git clone https://github.com/claudiaareneee/Intro-to-SE-Point-of-Sale.git
 ## Getting started
 Installations:
 - Install [Node JS](https://nodejs.org/en/download/)
-- Run ```npm install```: The package.json will auto install all of our dependenciesn
+- Install [bower](https://bower.io/) (this is a client side installer - npm is a server side installer and is downloaded with node) using ```npm install -g bower```. *Note*: you might have to run this command with ```sudo```.
+- Run ```npm install```: The package.json will auto install all of our dependencies
 
 ## To run this project
 In order to start the server, run the following command:
