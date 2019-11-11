@@ -11,17 +11,44 @@ class Item{
 
 class Search{
     constructor(){
-        this.transactionId = null
-        this.time = ""
-        this.date = ""
+        var dropdownMenuButton = document.getElementById("dropdownMenuButton");
+        var searchBar = document.getElementById("searchBar");
+        if (dropdownMenuButton == "transactionID"){
+            searchByTransactionId(searchBar);
+        }
+        else if (dropdownMenuButton == "date" || dropdownMenuButton == "time"){
+            searchByDate(searchBar);   
+        }
     }
 
     searchByDate(date){
-        //TODO: implement this
+        let input = document.getElementById('searchBar').value 
+        input=input.toLowerCase(); 
+        let x = document.getElementsByClassName('item'); 
+
+        for (i = 0; i < x.length; i++) {  
+            if (!x[i].innerHTML.toLowerCase().includes(input)) { 
+                x[i].style.display="none"; 
+            } 
+            else { 
+                x[i].style.display="list-item";                  
+            } 
+        } 
     }
 
     searchByTransactionId(transactionId){
-        //TODO: implement this
+        let input = document.getElementById('searchBar').value 
+        input=input.toLowerCase(); 
+        let x = document.getElementsByClassName('item'); 
+
+        for (i = 0; i < x.length; i++) {  
+            if (!x[i].innerHTML.toLowerCase().includes(input)) { 
+                x[i].style.display="none"; 
+            } 
+            else { 
+                x[i].style.display="list-item";                  
+            } 
+        } 
     }
 }
 
@@ -108,12 +135,14 @@ class Blockchain{
     }
 
     getLatestBlock(){
-        return this.blocks[this.blocks.length - 1];
+        if(this.blocks.length < 1)
+            return new Block(0, "0", 1465154705, new Receipt(), "816534932c2b7154836da6afc367695e6337db8a921823784c14378abed4f7d7");
+        else
+            return this.blocks[this.blocks.length - 1];
     }
 
     calculateHash(index, previousHash, timestamp, receiptData){
-        // return CryptoJS.SHA256(index + previousHash + timestamp + receiptData).toString();
-        return index + 1;
+        return CryptoJS.SHA256(index + previousHash + timestamp + receiptData).toString();
     }
 
     getGenesisBlock(){
