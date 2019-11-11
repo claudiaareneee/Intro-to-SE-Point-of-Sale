@@ -105,6 +105,22 @@ function showShoppingCart(receipt) {
     }
 }
 
+function searchDat(){
+    var dropdownMenuButton = document.getElementById("dropdownMenuButton").value;
+    var searchBar = document.getElementById("searchBar").value;
+    console.log(dropdownMenuButton);
+    console.log(searchBar);
+    var query = new Search(dropdownMenuButton, searchBar);
+
+    //perform search based on selections
+    if (dropdownMenuButton == "transactionID"){
+        query.searchByTransactionId(searchBar);
+    }
+    else if (dropdownMenuButton == "date" || this.dropdownMenuButton == "time"){
+        query.searchByDate(searchBar);   
+    }
+}
+
 // Getting blockchain from database
 var blockchain = new Blockchain();
 getBlocks(blockchain, () => {console.log(blockchain.blocks)});
@@ -161,3 +177,4 @@ console.log(receipt.calculateTotal());
 console.log(receipt.calculateQuantity());
 
 showShoppingCart(receipt);
+searchDat();

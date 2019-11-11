@@ -10,15 +10,9 @@ class Item{
 }
 
 class Search{
-    constructor(){
-        var dropdownMenuButton = document.getElementById("dropdownMenuButton");
-        var searchBar = document.getElementById("searchBar");
-        if (dropdownMenuButton == "transactionID"){
-            searchByTransactionId(searchBar);
-        }
-        else if (dropdownMenuButton == "date" || dropdownMenuButton == "time"){
-            searchByDate(searchBar);   
-        }
+    constructor(dropdownMenuButton, searchBar){
+       this.dropdownMenuButtonSelection = dropdownMenuButton;
+       this.searchBar = searchBar;
     }
 
     searchByDate(date){
