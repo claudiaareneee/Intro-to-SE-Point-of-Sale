@@ -53,7 +53,6 @@ function createItemMenuView(item, receipt){
 // This creates the html to show each item in the shopping cart. It takes in a receipt which contains items
 function showShoppingCart(receipt) {
     var shoppingCart = document.getElementById("shoppingCart");
-    console.log(receipt.items)
     shoppingCart.innerHTML = "";
 
     for (let key of Object.keys(receipt.items)){
@@ -83,14 +82,17 @@ function showShoppingCart(receipt) {
         // Giving values to elements
         newItemName.innerHTML = receipt.items[key].name;
         newItemQuantity.innerHTML = "Quantity: " + receipt.items[key].quantity;
-        //someone style this
-        //TODO: Fix this -- can't get number of items in shopping cart
-        console.log(receipt.items.quantity);
-        if (receipt.items.quantity != 0){
-            var total = document.getElementById("total").innerHTML = "$" + receipt.calculateTotal();
-        }
+        //calculate total
+        if (Object.keys(receipt.items).length != 0){
+            console.log(Object.keys(receipt.items).length);
+            //someone style this
+            document.getElementById("total").innerHTML = "$" + receipt.calculateTotal();
+            console.log("made it this far")
+        } 
+        //TODO: Fix this -- won't execute else clause
         else{
-            var total = document.getElementById("total").innerHTML = "";
+            console.log("made it this far");
+            document.getElementById("total").innerHTML = "";
         }
 
 
