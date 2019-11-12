@@ -42,25 +42,25 @@ function viewReceipt(block){
     var transactionID = document.createElement("H5");
     var cardBody = document.createElement("DIV");
     var date = document.createElement("P");
-    var time = document.createElement("P");
     var paymentMethod = document.createElement("P");
     var storeId = document.createElement("P");
+    var itemsLabel = document.createElement("H5");
     var itemsTable = document.createElement("TABLE");
 
     blockCard.className = "card w-100";
     transactionID.className = "card-header";
     cardBody.className = "card-body";
     date.className = "card-text";
-    time.className = "card-text";
     paymentMethod.className = "card-text";
     storeId.className = "card-text";
+    itemsLabel.className = "card-text";
     itemsTable.className = "w-100";
     
-    transactionID.innerHTML = block.receiptData.transactionId;
-    date.innerHTML = block.receiptData.date;
-    time.innerHTML = block.receiptData.time;
-    paymentMethod.innerHTML = block.receiptData.paymentMethod;
-    storeId.innerHTML = block.receiptData.storeId;
+    transactionID.innerHTML = "Transaction #" + block.receiptData.transactionId;
+    date.innerHTML = "Date of sale: " + block.receiptData.date + " " + block.receiptData.time;
+    paymentMethod.innerHTML = "Payment method: " + block.receiptData.paymentMethod;
+    storeId.innerHTML = "Store ID: " + block.receiptData.storeId;
+    itemsLabel.innerHTML = "Items:"
 
     if (block.receiptData.items != null && block.receiptData.items != undefined){
         itemsTable.appendChild(createTableHeader(["Quantity", "Name", "Price", "Total"]));
@@ -72,9 +72,9 @@ function viewReceipt(block){
     }
 
     cardBody.appendChild(date);
-    cardBody.appendChild(time);
     cardBody.appendChild(paymentMethod);
     cardBody.appendChild(storeId);
+    cardBody.appendChild(itemsLabel);
     cardBody.appendChild(itemsTable);
     blockCard.appendChild(transactionID);
     blockCard.appendChild(cardBody);
@@ -90,6 +90,9 @@ function displayBlocks(blocks){
 }
 
 var blockchain = new Blockchain();
-getBlocks(blockchain, () => {displayBlocks(blockchain.blocks)});
+getBlocks(blockchain, () => {
+    blockchain.blocks.shift();
+    displayBlocks(blockchain.blocks)
+});
 
 displayBlocks(blockchain.blocks);

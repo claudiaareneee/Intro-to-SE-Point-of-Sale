@@ -105,20 +105,20 @@ function showShoppingCart(receipt) {
     }
 }
 
-function searchDat(){
+function searchDate(){
     var dropdownMenuButton = document.getElementById("dropdownMenuButton").value;
     var searchBar = document.getElementById("searchBar").value;
     console.log(dropdownMenuButton);
     console.log(searchBar);
     var query = new Search(dropdownMenuButton, searchBar);
 
-    //perform search based on selections
-    if (dropdownMenuButton == "transactionID"){
-        query.searchByTransactionId(searchBar);
-    }
-    else if (dropdownMenuButton == "date" || this.dropdownMenuButton == "time"){
-        query.searchByDate(searchBar);   
-    }
+    // //perform search based on selections
+    // if (dropdownMenuButton == "transactionID"){
+    //     query.searchByTransactionId(searchBar);
+    // }
+    // else if (dropdownMenuButton == "date" || this.dropdownMenuButton == "time"){
+    //     query.searchByDate(searchBar);   
+    // }
 }
 
 // Getting blockchain from database
