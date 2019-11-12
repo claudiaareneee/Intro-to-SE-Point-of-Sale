@@ -23,18 +23,14 @@
             <div class="topnav">
                 <!-- Search form -->
                 <form class="form-inline active-pink">
-                    <div class="dropdown">
-                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Receipt Type
-                      </button>
-                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" id="transactionID">Transaction ID</a>
-                        <a class="dropdown-item" id="date">Date of Transaction</a>
-                        <a class="dropdown-item" id="time">Time of Transaction</a>
-                      </div>
-                    </div>
-                    <input class="form-control form-control-sm mr-3 w-75" id="searchBar" type="text" placeholder="Search" aria-label="Search">
-                    <i class="fa fa-search" aria-hidden="true"></i>
+                    <!--<input class="form-control form-control-sm mr-3 w-75" id="searchBar" type="text" placeholder="Search" aria-label="Search">-->
+                    <label for="start">Start date:</label>
+                    <input type="date" id="start" name="trip-start" value="2018-07-22" min="2017-01-01" max="2020-12-31">
+                    <label for="end">End date:</label>
+                    <input type="date" id="end" name="trip-end" value="2018-07-22" min="2017-01-01" max="2020-12-31">
+                    
+                    
+                    <i class="fa fa-search" id = "searchIcon" aria-hidden="true"></i>
                 </form>
             </div>
         </div>
@@ -47,28 +43,47 @@
     
             <div id="rightBar" class="col-6 col-sm-3">
                 <h1>Shopping cart:</h1>
-                <div class="form-row">
-                    <div class="form-group col-md-3">
-                        <label for="itemByTextQuantity">Quantity</label>
-                        <input type="number" class="form-control" id="itemByTextQuantity">
+                <div class="form">
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="itemByTextQuantity">Quantity</label>
+                                <input type="number" class="form-control" id="itemByTextQuantity">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="itemByTextName">Name</label>
+                                <input type="text" class="form-control" id="itemByTextName">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="itemByTextPrice">Price</label>
+                                <input type="number" class="form-control" id="itemByTextPrice">
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group col-md-6">
-                        <label for="itemByTextName">Name</label>
-                        <input type="text" class="form-control" id="itemByTextName">
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="itemByTextPrice">Price</label>
-                        <input type="number" class="form-control" id="itemByTextPrice">
+                    <div class="form-group">
+                        <button class="btn btn-primary" id="addItemByTextButton">Add</button>
                     </div>
                 </div>
-                <div class="form-row float-right">
-                    <button class="btn btn-primary" id="addItemByTextButton">Add</button>
-                </div>
-                <div class="form-row float-right">
-                    <button class="btn btn-primary" id="completeTransactionButton">Complete Transaction</button>
-                </div>
+                
                 <div id="shoppingCart"></div>
                 <div id="total"></div>
+
+                <form>
+                    <div class="form-group">
+                        <label for="storeId">Store ID</label>
+                        <input type="text" class="form-control" id="storeId">
+                    </div>
+                    <div class="form-group">
+                        <label for="paymentType">Payment Type</label>
+                        <select class="form-control" id="paymentType">
+                            <option>Card</option>
+                            <option>Cash</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button id="completeTransactionButton" type="submit" class="btn btn-primary mb-2">Complete Transaction</button>
+                    </div>
+                </form>
             </div>
         </div>
 

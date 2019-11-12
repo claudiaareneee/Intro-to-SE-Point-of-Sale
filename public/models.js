@@ -106,6 +106,13 @@ class Receipt{
 
     confirmCheckout(){
         //TODO: send receipt to database
+		//Added by Hannah 
+		if (this.items.length >= 1)
+		{
+			return true;
+		}
+		return false;
+		//Added by Hannah
     }
 }
 
@@ -142,7 +149,10 @@ class Blockchain{
     generateNextBlock(blockData){
         var previousBlock = this.getLatestBlock();
         var nextIndex = previousBlock.index + 1;
-        var nextTimestamp = new Date().getTime() / 1000;
+        var date = new Date();
+        blockData.date = (date.getMonth() + 1).toString() + "/" + date.getDate() + "/" + date.getFullYear();
+        blockData.time = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+        var nextTimestamp = date / 1000;
         var nextHash = this.calculateHash(nextIndex, previousBlock.hash, nextTimestamp, blockData);
         return new Block(nextIndex, previousBlock.hash, nextTimestamp, blockData, nextHash);
     }
