@@ -172,6 +172,8 @@ completeTransactionButton.addEventListener("click", () => {
     getBlocks(blockchain, () => {console.log(blockchain.blocks)})
 });
 
+//writeBlock(blockchain.getGenesisBlock());
+
 console.log(receipt);
 console.log(receipt.calculateTotal());
 console.log(receipt.calculateQuantity());
