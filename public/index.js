@@ -170,6 +170,8 @@ completeTransactionButton.addEventListener("click", () => {
     console.log("writing block");
     writeBlock(blockchain.generateNextBlock(receipt));
     getBlocks(blockchain, () => {console.log(blockchain.blocks)})
+    receipt = new Receipt();
+    showShoppingCart();
 });
 
 //writeBlock(blockchain.getGenesisBlock());
