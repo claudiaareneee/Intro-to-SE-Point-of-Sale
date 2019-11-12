@@ -10,11 +10,7 @@ class Item{
 }
 
 class Search{
-    constructor(dropdownMenuButton, searchBar){
-       this.dropdownMenuButtonSelection = dropdownMenuButton;
-       this.searchBar = searchBar;
-    }
-
+    
     searchByDate(date){
         let input = document.getElementById('searchBar').value 
         input=input.toLowerCase(); 
