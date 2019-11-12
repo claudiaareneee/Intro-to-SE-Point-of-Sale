@@ -83,18 +83,7 @@ function showShoppingCart(receipt) {
         newItemName.innerHTML = receipt.items[key].name;
         newItemQuantity.innerHTML = "Quantity: " + receipt.items[key].quantity;
         //calculate total
-        if (Object.keys(receipt.items).length != 0){
-            console.log(Object.keys(receipt.items).length);
-            //someone style this
-            document.getElementById("total").innerHTML = "$" + receipt.calculateTotal();
-            console.log("made it this far")
-        } 
-        //TODO: Fix this -- won't execute else clause
-        else{
-            console.log("made it this far");
-            document.getElementById("total").innerHTML = "";
-        }
-
+        document.getElementById("total").innerHTML = "Total: $" + receipt.calculateTotal();
 
         // Adding each element to the html
         newDeleteButton.appendChild(deleteIcon);
@@ -103,22 +92,6 @@ function showShoppingCart(receipt) {
         newContainer.appendChild(newItemQuantity);
         shoppingCart.appendChild(newContainer);
     }
-}
-
-function searchDate(){
-    var dropdownMenuButton = document.getElementById("dropdownMenuButton").value;
-    var searchBar = document.getElementById("searchBar").value;
-    console.log(dropdownMenuButton);
-    console.log(searchBar);
-    var query = new Search(dropdownMenuButton, searchBar);
-
-    // //perform search based on selections
-    // if (dropdownMenuButton == "transactionID"){
-    //     query.searchByTransactionId(searchBar);
-    // }
-    // else if (dropdownMenuButton == "date" || this.dropdownMenuButton == "time"){
-    //     query.searchByDate(searchBar);   
-    // }
 }
 
 // Getting blockchain from database
@@ -167,11 +140,18 @@ newItemButton.addEventListener("click", function(){
 // Complete transaction and on click listener
 var completeTransactionButton = document.getElementById("completeTransactionButton");
 completeTransactionButton.addEventListener("click", () => {
-    console.log("writing block");
-    writeBlock(blockchain.generateNextBlock(receipt));
-    getBlocks(blockchain, () => {console.log(blockchain.blocks)})
-    receipt = new Receipt();
-    showShoppingCart();
+    //Updated by Hannah
+	//confirming checkout from Receipt Class. 
+	if (receipt.confirmCheckout() == true)
+    {
+        console.log("writing block");
+        receipt.storeId = document.getElementById("storeId").value;
+        receipt.paymentMethod = document.getElementById("paymentType").value;
+        writeBlock(blockchain.generateNextBlock(receipt));
+        getBlocks(blockchain, () => {console.log(blockchain.blocks)})
+        receipt = new Receipt();
+        showShoppingCart();
+    }
 });
 
 //writeBlock(blockchain.getGenesisBlock());
@@ -181,4 +161,3 @@ console.log(receipt.calculateTotal());
 console.log(receipt.calculateQuantity());
 
 showShoppingCart(receipt);
-searchDat();
