@@ -94,7 +94,6 @@ function showShoppingCart(receipt) {
     }
 }
 
-<<<<<<< HEAD
 function searchDat(){
     //get contents from dropdown
     var dropdownMenuButton = document.getElementById("dropdownMenuButton").value;
@@ -118,8 +117,6 @@ function searchDat(){
     }
 }
 
-=======
->>>>>>> db16924304b1575072c29fc92812485dbcc47f23
 // Getting blockchain from database
 var blockchain = new Blockchain();
 getBlocks(blockchain, () => {console.log(blockchain.blocks)});
