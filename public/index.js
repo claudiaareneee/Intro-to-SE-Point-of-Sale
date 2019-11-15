@@ -177,6 +177,7 @@ completeTransactionButton.addEventListener("click", () => {
     }
 });
 
+
 //writeBlock(blockchain.getGenesisBlock());
 
 console.log(receipt);

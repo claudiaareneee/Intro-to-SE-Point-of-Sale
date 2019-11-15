@@ -21,17 +21,14 @@
         <div id="topBar">
             <h1 id="apptitle">Point of Sale at MSU</h1>
             <div class="topnav">
-                <!-- Search form -->
-                <form class="form-inline active-pink">
+                <!-- Search form 
+                <form class="form-inline active-pink">-->
                     <!--<input class="form-control form-control-sm mr-3 w-75" id="searchBar" type="text" placeholder="Search" aria-label="Search">-->
-                    <label for="start">Start date:</label>
-                    <input type="date" id="start" name="trip-start" value="2018-07-22" min="2017-01-01" max="2020-12-31">
-                    <label for="end">End date:</label>
-                    <input type="date" id="end" name="trip-end" value="2018-07-22" min="2017-01-01" max="2020-12-31">
+                    
+                    <button id="viewReceiptsButton" type="submit" class="btn btn-primary mb-2" onClick="window.location = 'http://localhost:3000/receiptlist.html'">View Receipts</button>
                     
                     
-                    <i class="fa fa-search" id = "searchIcon" aria-hidden="true"></i>
-                </form>
+                <!--</form>-->
             </div>
         </div>
 

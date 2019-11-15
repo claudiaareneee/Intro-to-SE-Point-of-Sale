@@ -13,7 +13,10 @@ class Search{
     
     searchByDate(date){
         let input = document.getElementById('searchBar').value 
+		
+		
         input=input.toLowerCase(); 
+		
         let x = document.getElementsByClassName('item'); 
 
         for (i = 0; i < x.length; i++) {  

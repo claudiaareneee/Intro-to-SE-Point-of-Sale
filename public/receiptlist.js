@@ -1,7 +1,7 @@
 function createTableHeader(itemHeader){
     var itemsTableHeaderContainer = document.createElement("THEAD").appendChild(document.createElement("TR"));
     for (var key of itemHeader){
-        console.log("key" + key)
+        //console.log("key" + key)
         var itemsTableHeaderName = document.createElement("TH");
         itemsTableHeaderName.setAttribute("scope", "col");
         itemsTableHeaderName.className = "w-25";
@@ -65,7 +65,7 @@ function viewReceipt(block){
     if (block.receiptData.items != null && block.receiptData.items != undefined){
         itemsTable.appendChild(createTableHeader(["Quantity", "Name", "Price", "Total"]));
         for(var key in block.receiptData.items){
-            console.log(key);
+            //console.log(key);
             var item = block.receiptData.items[key];
             itemsTable.appendChild(createTableRow(item)); 
         }
@@ -83,11 +83,78 @@ function viewReceipt(block){
 
 function displayBlocks(blocks){
     var blockContainer = document.getElementById("mainContent");
-    console.log(blocks);
+    //console.log(blocks);
     for (var block of blocks) {
         blockContainer.appendChild(viewReceipt(block));
     }
 }
+
+var viewSearchedTransId = document.getElementById("viewSearchedTransId");
+viewSearchedTransId.addEventListener("click", () => {
+   var blockchain = new Blockchain();
+   var blockContainer = document.getElementById("mainContent");
+   blockContainer.innerHTML = "";
+   console.log("got to here");
+   
+   var transID = document.getElementById("searchByTransaction");
+	getBlocks(blockchain, () => {
+		blockchain.blocks.shift();
+		for (var block of blockchain.blocks)
+		{
+		   console.log(block);
+		   console.log("Test");
+		   if (block.receiptData.transactionId == transID.value)
+		   {
+				//blockContainer.appendChild(viewReceipt(block));
+				blockchain.blocks = [block];
+				console.log(blockchain.blocks);
+				displayBlocks(blockchain.blocks);
+		   }
+		}
+   
+	});
+   
+});
+
+
+var viewSearchedDates = document.getElementById("viewSearchedDates");
+viewSearchedDates.addEventListener("click", () => {
+	//console.log(blockchain.date);
+   var blockchain = new Blockchain();
+   var blockContainer = document.getElementById("mainContent");
+   blockContainer.innerHTML = "";
+   
+   var start = document.getElementById("start");
+   var startDate = new Date(start.value);
+   console.log(start.value);
+   console.log(startDate/1000);
+   
+   var end = document.getElementById("end");
+   var endDate = new Date(end.value);
+   console.log(end.value);
+   console.log(endDate/1000);
+   
+   console.log("We are about to go into the for loop");
+   getBlocks(blockchain, () => {
+	blockchain.blocks.shift();
+	   for (var block of blockchain.blocks)
+	   {
+		   console.log("we are here");
+		   console.log(startDate/1000);
+		   console.log(block.timestamp);
+		   console.log(endDate/1000);
+		   if (block.timestamp <= (endDate/1000) && block.timestamp >= (startDate/1000))
+		   {
+				
+				blockContainer.appendChild(viewReceipt(block));
+		   }
+	   }
+   });
+   
+});
+
+
+
 
 var blockchain = new Blockchain();
 getBlocks(blockchain, () => {
@@ -95,4 +162,4 @@ getBlocks(blockchain, () => {
     displayBlocks(blockchain.blocks)
 });
 
-displayBlocks(blockchain.blocks);
+//displayBlocks(blockchain.blocks);

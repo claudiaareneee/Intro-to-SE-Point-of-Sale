@@ -20,10 +20,23 @@
             <h1 id="apptitle">Point of Sale at MSU</h1>
             <div class="topnav">
                 <!-- Search form -->
-                <form class="form-inline active-pink">
-                    <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                </form>
+                
+                    <!--<input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search">-->
+					<button id="viewShoppingCart" class="btn btn-primary mb-2" onClick="window.location = 'http://localhost:3000/'">Shopping Cart Page</button>
+					<input type="text" id = "searchByTransaction" name = "searchTransaction" >
+					<button id="viewSearchedTransId" class="btn btn-primary mb-2">Search by Transaction ID</button>
+                    
+					<label for="start">Start date:</label>
+                    <input type="date" id="start" name="trip-start" value="2018-07-22" min="2017-01-01" max="2020-12-31">
+                    <label for="end">End date:</label>
+                    <input type="date" id="end" name="trip-end" value="2018-07-22" min="2017-01-01" max="2020-12-31">
+					<button id="viewSearchedDates" type="submit" class="btn btn-primary mb-2">Search by Date</button>
+					
+					
+					<!--<i class="fa fa-search" id = "searchIcon" aria-hidden="true"></i>
+                    <i class="fa fa-search" aria-hidden="true"></i>-->
+					
+                
             </div>
         </div>
 
