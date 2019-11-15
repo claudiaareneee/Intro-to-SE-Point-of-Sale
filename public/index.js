@@ -154,15 +154,12 @@ var completeTransactionButton = document.getElementById("completeTransactionButt
 completeTransactionButton.addEventListener("click", () => {
     //Updated by Hannah
     //confirming checkout from Receipt Class. 
-    console.log("got to here");
-        console.log("got to here 2");
-        console.log("writing block");
-        receipt.storeId = document.getElementById("storeId").value;
-        receipt.paymentMethod = document.getElementById("paymentType").value;
-        writeBlock(blockchain.generateNextBlock(receipt));
-        getBlocks(blockchain, () => {console.log(blockchain.blocks)})
-        receipt = new Receipt();
-        showShoppingCart();
+    receipt.storeId = document.getElementById("storeId").value;
+    receipt.paymentMethod = document.getElementById("paymentType").value;
+    writeBlock(blockchain.generateNextBlock(receipt));
+    getBlocks(blockchain, () => {console.log(blockchain.blocks)})
+    receipt = new Receipt();
+    showShoppingCart();
 });
 
 
