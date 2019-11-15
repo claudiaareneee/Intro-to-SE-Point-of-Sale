@@ -7,6 +7,9 @@ function addItemsByText(receipt, itemId, name, price, quantity){
         receipt.addItem(new Item(itemId, name, price, quantity));
 }
 
+function showTotal(){
+	document.getElementById("total").style.display = "block";
+}
 // This creates the html for an individual item in the menu: ex: creating a Pencil item
 function createItemMenuView(item, receipt){
 
@@ -54,6 +57,7 @@ function createItemMenuView(item, receipt){
 function showShoppingCart(receipt) {
     var shoppingCart = document.getElementById("shoppingCart");
     shoppingCart.innerHTML = "";
+    document.getElementById("total").style.display = "none";
 
     for (let key of Object.keys(receipt.items)){
         // Creating elements
@@ -86,7 +90,7 @@ function showShoppingCart(receipt) {
         //calculate total
         document.getElementById("total").innerHTML = "Total: $" + receipt.calculateTotal();
         console.log(receipt.calculateTotal());
-
+        showTotal();
         // Adding each element to the html
         newDeleteButton.appendChild(deleteIcon);
         newContainer.appendChild(newItemName);

@@ -99,3 +99,11 @@ p {
 .topnav {
     float: right;   
 }
+
+.box {
+	border: 1px solid #000;
+	padding: 2px;
+	/*border: 2px solid #555555;
+    border-radius: 1em;
+    */
+}
