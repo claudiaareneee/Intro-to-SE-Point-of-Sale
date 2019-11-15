@@ -76,6 +76,7 @@ function showShoppingCart(receipt) {
             } else {
                 receipt.removeItem(receipt.items[key]);
             }
+            document.getElementById("total").innerHTML = "Total: $" + receipt.calculateTotal();
             showShoppingCart(receipt);
         })
 
@@ -84,6 +85,7 @@ function showShoppingCart(receipt) {
         newItemQuantity.innerHTML = "Quantity: " + receipt.items[key].quantity;
         //calculate total
         document.getElementById("total").innerHTML = "Total: $" + receipt.calculateTotal();
+        console.log(receipt.calculateTotal());
 
         // Adding each element to the html
         newDeleteButton.appendChild(deleteIcon);
