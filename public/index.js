@@ -153,9 +153,9 @@ newItemButton.addEventListener("click", function(){
 var completeTransactionButton = document.getElementById("completeTransactionButton");
 completeTransactionButton.addEventListener("click", () => {
     //Updated by Hannah
-	//confirming checkout from Receipt Class. 
-	if (receipt.confirmCheckout() == true)
-    {
+    //confirming checkout from Receipt Class. 
+    console.log("got to here");
+        console.log("got to here 2");
         console.log("writing block");
         receipt.storeId = document.getElementById("storeId").value;
         receipt.paymentMethod = document.getElementById("paymentType").value;
@@ -163,7 +163,6 @@ completeTransactionButton.addEventListener("click", () => {
         getBlocks(blockchain, () => {console.log(blockchain.blocks)})
         receipt = new Receipt();
         showShoppingCart();
-    }
 });
 
 

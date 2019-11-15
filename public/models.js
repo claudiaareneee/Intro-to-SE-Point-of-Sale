@@ -106,17 +106,6 @@ class Receipt{
     getPaymentMethod(paymentMethodString){
         return this.paymentMethod;
     }
-
-    confirmCheckout(){
-        //TODO: send receipt to database
-		//Added by Hannah 
-		if (this.items.length >= 1)
-		{
-			return true;
-		}
-		return false;
-		//Added by Hannah
-    }
 }
 
 class Block{

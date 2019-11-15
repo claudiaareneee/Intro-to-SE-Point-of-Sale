@@ -143,7 +143,7 @@ viewSearchedDates.addEventListener("click", () => {
 		   console.log(startDate/1000);
 		   console.log(block.timestamp);
 		   console.log(endDate/1000);
-		   if (block.timestamp <= (endDate/1000) && block.timestamp >= (startDate/1000))
+		   if (block.timestamp <= ((endDate/1000)+86400) && block.timestamp >= (startDate/1000))
 		   {
 				
 				blockContainer.appendChild(viewReceipt(block));
