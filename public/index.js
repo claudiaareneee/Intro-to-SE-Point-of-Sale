@@ -95,26 +95,15 @@ function showShoppingCart(receipt) {
 }
 
 function searchDat(){
-    //get contents from dropdown
-    var dropdownMenuButton = document.getElementById("dropdownMenuButton").value;
 
     //get content from search bar
     var searchBar = document.getElementById("searchBar").value;
 
     //show whatever we get
-    console.log(dropdownMenuButton);
     console.log(searchBar);
 
     //start a new search
     var query = new Search();
-
-    //perform search based on selections
-    if (dropdownMenuButton == "transactionID"){
-        query.searchByTransactionId(searchBar);
-    }
-    else if (dropdownMenuButton == "date" || this.dropdownMenuButton == "time"){
-        query.searchByDate(searchBar);   
-    }
 }
 
 // Getting blockchain from database

@@ -23,6 +23,7 @@ git clone https://github.com/claudiaareneee/Intro-to-SE-Point-of-Sale.git
 Installations:
 - Install [Node JS](https://nodejs.org/en/download/)
 - Install [bower](https://bower.io/) (this is a client side installer - npm is a server side installer and is downloaded with node) using ```npm install -g bower```. *Note*: you might have to run this command with ```sudo```.
+- Install [crypto-js](https://www.npmjs.com/package/crypto-js) using ```bower install crypto-js``` and move the ```bower_components``` folder to the ```public``` folder.
 - Run ```npm install```: The package.json will auto install all of our dependencies
 
 ## To run this project
