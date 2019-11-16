@@ -47,7 +47,7 @@ function viewReceipt(block){
     var itemsLabel = document.createElement("H5");
     var itemsTable = document.createElement("TABLE");
 
-    blockCard.className = "card w-100";
+    blockCard.className = "card w-100 receipt-card";
     transactionID.className = "card-header";
     cardBody.className = "card-body";
     date.className = "card-text";
@@ -151,10 +151,8 @@ var viewSearchedDates= () => {
    
 };
 
-
-var searchByOption = document.getElementById("searchByOption");
-searchByOption.addEventListener("change", () => {
-    if (searchByOption.value == "date"){
+function setSearchParameters(value){
+    if (value == "date"){
         document.getElementById("start").style.display = 'inline-block';
         document.getElementById("end").style.display = 'inline-block';
         document.getElementById("startLabel").style.display = 'inline-block';
@@ -167,7 +165,13 @@ searchByOption.addEventListener("change", () => {
         document.getElementById("endLabel").style.display = 'none';
         document.getElementById("searchByTransaction").style.display = 'inline-block';
     }
+}
+
+var searchByOption = document.getElementById("searchByOption");
+searchByOption.addEventListener("change", () => {
+    setSearchParameters(searchByOption.value);
 });
+setSearchParameters(searchByOption.value);
 
 var searchButton = document.getElementById("searchButton");
 searchButton.addEventListener("click", () => {
