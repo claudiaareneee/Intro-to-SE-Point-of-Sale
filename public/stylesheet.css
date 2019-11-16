@@ -24,7 +24,7 @@ p {
 /* Title bar */
 #topBar{
     background: var(--topbar-color);
-    padding: 100px;
+    padding: 50px;
 }
 
 #apptitle {
@@ -106,4 +106,8 @@ p {
 	/*border: 2px solid #555555;
     border-radius: 1em;
     */
+}
+
+.logo {
+	width: 8%;
 }
