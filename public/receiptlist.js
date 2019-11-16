@@ -24,11 +24,11 @@ function createTableRow(item){
 
     var itemPrice = document.createElement("TD");
     itemPrice.setAttribute("scope", "col");
-    itemPrice.innerText = "$" + item.price;
+    itemPrice.innerText = "$" + parseFloat(item.price).toFixed(2);
 
     var itemTotal = document.createElement("TD");
     itemTotal.setAttribute("scope", "col");
-    itemTotal.innerText = parseFloat(item.price) * parseFloat(item.quantity);
+    itemTotal.innerText = "$" + (parseFloat(item.price) * parseFloat(item.quantity)).toFixed(2);
     
     rowContainer.appendChild(itemQuantity);
     rowContainer.appendChild(itemName);
@@ -46,6 +46,7 @@ function viewReceipt(block){
     var storeId = document.createElement("P");
     var itemsLabel = document.createElement("H5");
     var itemsTable = document.createElement("TABLE");
+    var totalPrice = document.createElement("H6");
 
     blockCard.className = "card w-100 receipt-card";
     transactionID.className = "card-header";
@@ -55,12 +56,14 @@ function viewReceipt(block){
     storeId.className = "card-text";
     itemsLabel.className = "card-text";
     itemsTable.className = "w-100";
+    totalPrice.className = "card-text";
     
     transactionID.innerHTML = "Transaction #" + block.receiptData.transactionId;
     date.innerHTML = "Date of sale: " + block.receiptData.date + " " + block.receiptData.time;
     paymentMethod.innerHTML = "Payment method: " + block.receiptData.paymentMethod;
     storeId.innerHTML = "Store ID: " + block.receiptData.storeId;
     itemsLabel.innerHTML = "Items:"
+    totalPrice.innerHTML = "Total Price: $" + parseFloat(block.receiptData.total).toFixed(2);
 
     if (block.receiptData.items != null && block.receiptData.items != undefined){
         itemsTable.appendChild(createTableHeader(["Quantity", "Name", "Price", "Total"]));
@@ -76,6 +79,7 @@ function viewReceipt(block){
     cardBody.appendChild(storeId);
     cardBody.appendChild(itemsLabel);
     cardBody.appendChild(itemsTable);
+    cardBody.appendChild(totalPrice);
     blockCard.appendChild(transactionID);
     blockCard.appendChild(cardBody);
     return blockCard;
