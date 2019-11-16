@@ -68,7 +68,7 @@ class Receipt{
                 const element = this.items[item];
                 
                 if (element.hasOwnProperty('price') && element.hasOwnProperty('quantity')){
-                    total += (element.price * element.quantity);
+                    total += parseFloat((element.price * element.quantity).toFixed(2));
                 }
             }
         }
