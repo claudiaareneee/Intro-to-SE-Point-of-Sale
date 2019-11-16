@@ -75,11 +75,10 @@ class Receipt{
     }
 
     calculateQuantity(){
-        var quantity = 0.0;
+        var quantity = 0;
         for (const item in this.items) {
             if (this.items.hasOwnProperty(item)) {
                 const element = this.items[item];
-                
                 if (element.hasOwnProperty('quantity')){
                     quantity += element.quantity;
                 }
@@ -90,12 +89,12 @@ class Receipt{
 
     addItem(item){
         // this.items.push(item);
-        this.items[item.name] = item
+        this.items[item.name] = item;
     }
 
     removeItem(item){
         // this.items.splice(itemIndex,1);
-        console.log(item.name)
+        console.log(item.name);
         delete this.items[item.name];
     }
 
