@@ -24,7 +24,10 @@ p {
 /* Title bar */
 #topBar{
     background: var(--topbar-color);
-    padding: 50px;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
 }
 
 #apptitle {
@@ -93,12 +96,14 @@ p {
     padding: 2rem;
 }
 
-/* #rightBar {
-    background-color: var(--secondary-color);
-} */
+#rightBar {
+    padding: 1rem;
+    float: right;
+}
 
 .topnav {
-    float: right;   
+    float: right;
+    width: 100%;   
 }
 
 .box {
@@ -124,4 +129,18 @@ p {
 
 .logo {
 	width: 8%;
+}
+
+.search-form-element{
+    margin-left: .25em;
+    margin-right: .25em;
+}
+
+.icon-buttons{
+    margin-left: 1em;
+    float: right;
+}
+
+.receipt-card{
+    margin-bottom: 2rem;
 }
