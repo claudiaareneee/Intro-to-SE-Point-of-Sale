@@ -34,7 +34,7 @@ function createItemMenuView(item, receipt){
 
     // Giving values to elements
     itemName.innerHTML = item.name;
-    itemPrice.innerHTML = "Price: $" + item.price;
+    itemPrice.innerHTML = "Price: $" + parseFloat(item.price).toFixed(2);
 
     // Adding an onClick listener
     addItemButton.addEventListener("click", function(){
@@ -90,7 +90,7 @@ function showShoppingCart(receipt) {
             } else {
                 receipt.removeItem(receipt.items[key]);
             }
-            document.getElementById("total").innerHTML = "Total: $" + receipt.calculateTotal();
+            document.getElementById("total").innerHTML = "Total: $" + parseFloat(receipt.calculateTotal()).toFixed(2);
             showShoppingCart(receipt);
         })
 
@@ -99,7 +99,7 @@ function showShoppingCart(receipt) {
         console.log(receipt.items[key].quantity);
         newItemQuantity.innerHTML = "Quantity: " + receipt.items[key].quantity;
         //calculate total
-        document.getElementById("total").innerHTML = "Total: $" + receipt.calculateTotal();
+        document.getElementById("total").innerHTML = "Total: $" + parseFloat(receipt.calculateTotal()).toFixed(2);
         showTotal();
         // Adding each element to the html
         newDeleteButton.appendChild(deleteIcon);
