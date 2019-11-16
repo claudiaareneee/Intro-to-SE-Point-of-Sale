@@ -38,9 +38,19 @@ function createItemMenuView(item, receipt){
 
     // Adding an onClick listener
     addItemButton.addEventListener("click", function(){
-        item.quantity += 1;
-        receipt.addItem(item);
-        showShoppingCart(receipt);
+        console.log(document.getElementsByClassName("itemFromReceipt"))
+        if (document.getElementsByClassName("itemFromReceipt").length != 0)
+        {
+            item.quantity += 1;
+            receipt.addItem(item);
+            showShoppingCart(receipt);
+        }
+        else 
+        {
+            item.quantity = 1;
+            receipt.addItem(item);
+            showShoppingCart(receipt);
+        }
     });
 
     // Adding each element to the html
@@ -86,10 +96,10 @@ function showShoppingCart(receipt) {
 
         // Giving values to elements
         newItemName.innerHTML = receipt.items[key].name;
+        console.log(receipt.items[key].quantity);
         newItemQuantity.innerHTML = "Quantity: " + receipt.items[key].quantity;
         //calculate total
         document.getElementById("total").innerHTML = "Total: $" + receipt.calculateTotal();
-        console.log(receipt.calculateTotal());
         showTotal();
         // Adding each element to the html
         newDeleteButton.appendChild(deleteIcon);
@@ -144,13 +154,14 @@ newItemButton.addEventListener("click", function(){
     var price = document.getElementById("itemByTextPrice").value;
 
     // Creating an item for the 
-    var item = new Item(items.length + 1, name, parseFloat(price), 0.0);
+    console.log(items.length + 1);
+    var item = new Item(items.length + 1, name, parseFloat(price), 0);
     // var itemForList = new Item(items.length + 1, name, parseFloat(price), 0.0);
 
     // createItemMenuView(itemForList, receipt);
     
     // items.push(itemForList);
-    item.quantity = parseFloat(quantity);
+    item.quantity = parseInt(quantity);
     receipt.addItem(item);
     showShoppingCart(receipt);
 });
@@ -173,6 +184,4 @@ completeTransactionButton.addEventListener("click", () => {
 
 console.log(receipt);
 console.log(receipt.calculateTotal());
-console.log(receipt.calculateQuantity());
-
 showShoppingCart(receipt);
