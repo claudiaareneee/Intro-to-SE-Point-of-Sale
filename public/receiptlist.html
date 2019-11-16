@@ -21,27 +21,22 @@
             <div class="topnav form-inline">
                 <!-- Search form -->
                 
-                    <!--<input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search">-->
-                    <div class="form-group">
-                        <label for="searchByOption" class="float-left">Search by</label>
-                        <select class="form-control float-left" id="searchByOption">
-                            <option>transaction</option>
-                            <option>date</option>
-                        </select>
-                    </div>
-					<input type="text" id="searchByTransaction" name="searchTransaction" class="form-control">
-                    
-					<label for="start" id="startLabel">Start date:</label>
-                    <input type="date" id="start" name="trip-start" value="2019-11-15" min="2017-01-01" max="2020-12-31" class="form-control">
-                    <label for="end" id="endLabel">End date:</label>
-                    <input type="date" id="end" name="trip-end" value="2019-11-15" min="2017-01-01" max="2020-12-31" class="form-control">
-					
-                    <button id="searchButton" class="btn btn-primary mb-2"><i class="fa fa-search" aria-hidden="true"></i></button>
-                    <button id="viewShoppingCart" class="btn btn-primary mb-2" onClick="window.location = 'http://localhost:3000/'"><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
-					<!--<i class="fa fa-search" id = "searchIcon" aria-hidden="true"></i>
-                    <i class="fa fa-search" aria-hidden="true"></i>-->
-					
-                
+                <label for="searchByOption">Search by</label>
+                <select class="form-control" id="searchByOption">
+                    <option>transaction</option>
+                    <option>date</option>
+                </select>
+            
+                <input type="text" id="searchByTransaction" name="searchTransaction" placeholder="Transaction ID" class="form-control">
+            
+                <label for="start" id="startLabel">Start date:</label>
+                <input type="date" id="start" name="trip-start" value="2019-11-15" min="2017-01-01" max="2020-12-31" class="form-control">
+            
+                <label for="end" id="endLabel">End date:</label>
+                <input type="date" id="end" name="trip-end" value="2019-11-15" min="2017-01-01" max="2020-12-31" class="form-control">
+            
+                <button id="searchButton" class="btn btn-primary mb-2"><i class="fa fa-search" aria-hidden="true"></i></button>
+                <button id="viewShoppingCart" class="btn btn-primary mb-2" onClick="window.location = 'http://localhost:3000/'"><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
             </div>
         </div>
 
