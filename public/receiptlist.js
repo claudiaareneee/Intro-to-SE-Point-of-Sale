@@ -89,8 +89,7 @@ function displayBlocks(blocks){
     }
 }
 
-var viewSearchedTransId = document.getElementById("viewSearchedTransId");
-viewSearchedTransId.addEventListener("click", () => {
+var viewSearchedTransId = () => {
    var blockchain = new Blockchain();
    var blockContainer = document.getElementById("mainContent");
    blockContainer.innerHTML = "";
@@ -114,11 +113,10 @@ viewSearchedTransId.addEventListener("click", () => {
    
 	});
    
-});
+};
 
 
-var viewSearchedDates = document.getElementById("viewSearchedDates");
-viewSearchedDates.addEventListener("click", () => {
+var viewSearchedDates= () => {
 	//console.log(blockchain.date);
    var blockchain = new Blockchain();
    var blockContainer = document.getElementById("mainContent");
@@ -151,15 +149,37 @@ viewSearchedDates.addEventListener("click", () => {
 	   }
    });
    
+};
+
+
+var searchByOption = document.getElementById("searchByOption");
+searchByOption.addEventListener("change", () => {
+    if (searchByOption.value == "date"){
+        document.getElementById("start").style.display = 'inline-block';
+        document.getElementById("end").style.display = 'inline-block';
+        document.getElementById("startLabel").style.display = 'inline-block';
+        document.getElementById("endLabel").style.display = 'inline-block';
+        document.getElementById("searchByTransaction").style.display = 'none';
+    } else {
+        document.getElementById("start").style.display = 'none';
+        document.getElementById("end").style.display = 'none';
+        document.getElementById("startLabel").style.display = 'none';
+        document.getElementById("endLabel").style.display = 'none';
+        document.getElementById("searchByTransaction").style.display = 'inline-block';
+    }
 });
 
-
-
+var searchButton = document.getElementById("searchButton");
+searchButton.addEventListener("click", () => {
+    if (searchByOption.value == "date"){
+        viewSearchedDates();
+    } else {
+        viewSearchedTransId();
+    }
+});
 
 var blockchain = new Blockchain();
 getBlocks(blockchain, () => {
     blockchain.blocks.shift();
     displayBlocks(blockchain.blocks)
 });
-
-//displayBlocks(blockchain.blocks);
