@@ -18,25 +18,32 @@
     <body>
         <div id="topBar">
             <h1 id="apptitle">Point of Sale at MSU <img src="msu-logo.png" alt="MSU logo" class="logo" class="logo"></h1>
-            <div class="topnav form-inline">
+            <div class="topnav form-row">
                 <!-- Search form -->
+                <div class="form-group form-inline col-md">
+                    <label for="searchByOption">Search by</label>
+                    <select class="form-control search-form-element" id="searchByOption">
+                        <option>transaction</option>
+                        <option>date</option>
+                    </select>
+                </div>
                 
-                <label for="searchByOption">Search by</label>
-                <select class="form-control" id="searchByOption">
-                    <option>transaction</option>
-                    <option>date</option>
-                </select>
+                <div class="form-group form-inline col-md-8">
+                        <input type="text" id="searchByTransaction" name="searchTransaction" placeholder="Transaction ID" class="form-control search-form-element">
             
-                <input type="text" id="searchByTransaction" name="searchTransaction" placeholder="Transaction ID" class="form-control">
+                        <label for="start" id="startLabel">Start date:</label>
+                        <input type="date" id="start" name="trip-start" value="2019-11-15" min="2017-01-01" max="2020-12-31" class="form-control search-form-element">
+                    
+                        <label for="end" id="endLabel">End date:</label>
+                        <input type="date" id="end" name="trip-end" value="2019-11-15" min="2017-01-01" max="2020-12-31" class="form-control search-form-element">
+                </div>
             
-                <label for="start" id="startLabel">Start date:</label>
-                <input type="date" id="start" name="trip-start" value="2019-11-15" min="2017-01-01" max="2020-12-31" class="form-control">
+                <div class="form-group form-inline col-md">
+                        <button id="searchButton" class="btn btn-primary mb-2 icon-buttons"><i class="fa fa-search" aria-hidden="true"></i></button>
+                        <button id="viewShoppingCart" class="btn btn-primary mb-2 icon-buttons" onClick="window.location = 'http://localhost:3000/'"><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+                </div>
             
-                <label for="end" id="endLabel">End date:</label>
-                <input type="date" id="end" name="trip-end" value="2019-11-15" min="2017-01-01" max="2020-12-31" class="form-control">
-            
-                <button id="searchButton" class="btn btn-primary mb-2"><i class="fa fa-search" aria-hidden="true"></i></button>
-                <button id="viewShoppingCart" class="btn btn-primary mb-2" onClick="window.location = 'http://localhost:3000/'"><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+                
             </div>
         </div>
 

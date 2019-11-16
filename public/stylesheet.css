@@ -126,3 +126,13 @@ p {
 .logo {
 	width: 8%;
 }
+
+.search-form-element{
+    margin-left: .25em;
+    margin-right: .25em;
+}
+
+.icon-buttons{
+    margin-left: 1em;
+    float: right;
+}
