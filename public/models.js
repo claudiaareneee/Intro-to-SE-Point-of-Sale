@@ -58,6 +58,7 @@ class Receipt{
         this.time = time || "time";
         this.date = date || "string";
         this.paymentMethod = paymentMethod || 'cash';
+        this.calculateTotal();
     }
 
     calculateTotal(){
@@ -71,6 +72,7 @@ class Receipt{
                 }
             }
         }
+        this.total = total;
         return total;
     }
 
