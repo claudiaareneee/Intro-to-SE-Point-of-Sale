@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "description": "my first socket.io app",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "heroku-postbuild": "bower install crypto-js"
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
