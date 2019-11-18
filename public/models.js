@@ -124,7 +124,7 @@ class Blockchain{
         this.blocks = blocks || [];
     }
 
-    getLatestBlock(){
+    getLastBlock(){
         if(this.blocks.length < 1)
             return new Block(0, "0", 1465154705, new Receipt(), "816534932c2b7154836da6afc367695e6337db8a921823784c14378abed4f7d7");
         else
@@ -135,30 +135,27 @@ class Blockchain{
         return CryptoJS.SHA256(index + previousHash + timestamp + receiptData).toString();
     }
 
-    getGenesisBlock(){
+    getFirstBlock(){
         return new Block(0, "0", 1465154705, new Receipt(), "816534932c2b7154836da6afc367695e6337db8a921823784c14378abed4f7d7");
     }
 
     generateNextBlock(blockData){
-        var previousBlock = this.getLatestBlock();
-        var nextIndex = previousBlock.index + 1;
+        var prevBlock = this.getLastBlock();
+        var nextIndex = prevBlock.index + 1;
         var date = new Date();
         blockData.date = (date.getMonth() + 1).toString() + "/" + date.getDate() + "/" + date.getFullYear();
         blockData.time = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
         var nextTimestamp = date / 1000;
-        var nextHash = this.calculateHash(nextIndex, previousBlock.hash, nextTimestamp, blockData);
-        return new Block(nextIndex, previousBlock.hash, nextTimestamp, blockData, nextHash);
+        var nextHash = this.calculateHash(nextIndex, prevBlock.hash, nextTimestamp, blockData);
+        return new Block(nextIndex, prevBlock.hash, nextTimestamp, blockData, nextHash);
     }
 
-    isValidNewBlock (newBlock, previousBlock) {
-        if (previousBlock.index + 1 !== newBlock.index) {
-            console.log('invalid index');
+    isValidNewBlock (newBlock, prevBlock) {
+        if (prevBlock.index + 1 !== newBlock.index) {
             return false;
-        } else if (previousBlock.hash !== newBlock.previousHash) {
-            console.log('invalid previoushash');
+        } else if (prevBlock.hash !== newBlock.previousHash) {
             return false;
         } else if (calculateHashForBlock(newBlock) !== newBlock.hash) {
-            console.log('invalid hash: ' + calculateHashForBlock(newBlock) + ' ' + newBlock.hash);
             return false;
         }
         return true;
