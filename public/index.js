@@ -179,6 +179,11 @@ completeTransactionButton.addEventListener("click", () => {
     showShoppingCart();
 });
 
+var viewReceiptsButton = document.getElementById("viewReceiptsButton");
+viewReceiptsButton.addEventListener("click", () => {
+    window.location = './public/receiptlist.html'
+});
+
 
 //writeBlock(blockchain.getGenesisBlock());
 
