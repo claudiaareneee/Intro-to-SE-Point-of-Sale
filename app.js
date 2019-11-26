@@ -3,8 +3,6 @@ var app = express();
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
 
-// var socket = io();
-
 app.use(express.static(__dirname));
 
 app.get('/', function(req, res){

@@ -126,17 +126,17 @@ class Blockchain{
 
     getLastBlock(){
         if(this.blocks.length < 1)
-            return new Block(0, "0", 1465154705, new Receipt(), "816534932c2b7154836da6afc367695e6337db8a921823784c14378abed4f7d7");
+            return new Block(0, "0", 1465154705, new Receipt(), "816534932c2b7234987da6afc367695e4234db8a921823784c14378abed4f7d7");
         else
             return this.blocks[this.blocks.length - 1];
     }
 
-    calculateHash(index, previousHash, timestamp, receiptData){
-        return CryptoJS.SHA256(index + previousHash + timestamp + receiptData).toString();
+    calculateHashValue(index, prevHash, timestamp, receiptData){
+        return CryptoJS.SHA256(index + prevHash + timestamp + receiptData).toString();
     }
 
     getFirstBlock(){
-        return new Block(0, "0", 1465154705, new Receipt(), "816534932c2b7154836da6afc367695e6337db8a921823784c14378abed4f7d7");
+        return new Block(0, "0", 1465154705, new Receipt(), "816534932c2b7234987da6afc367695e4234db8a921823784c14378abed4f7d7");
     }
 
     generateNextBlock(blockData){
@@ -146,19 +146,8 @@ class Blockchain{
         blockData.date = (date.getMonth() + 1).toString() + "/" + date.getDate() + "/" + date.getFullYear();
         blockData.time = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
         var nextTimestamp = date / 1000;
-        var nextHash = this.calculateHash(nextIndex, prevBlock.hash, nextTimestamp, blockData);
+        var nextHash = this.calculateHashValue(nextIndex, prevBlock.hash, nextTimestamp, blockData);
         return new Block(nextIndex, prevBlock.hash, nextTimestamp, blockData, nextHash);
-    }
-
-    isValidNewBlock (newBlock, prevBlock) {
-        if (prevBlock.index + 1 !== newBlock.index) {
-            return false;
-        } else if (prevBlock.hash !== newBlock.previousHash) {
-            return false;
-        } else if (calculateHashForBlock(newBlock) !== newBlock.hash) {
-            return false;
-        }
-        return true;
     }
 }
 
